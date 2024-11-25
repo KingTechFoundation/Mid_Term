@@ -1,0 +1,164 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #e0f7fa,
+    #f4f6f9
+  ); /* Gradient background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column; /* Allow footer to stay at the bottom */
+}
+
+/* Container */
+.container {
+  background-color: #dab4b4;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem; /* Add margin for spacing above footer */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #007bff; /* Use a color that matches your design */
+  margin-bottom: 1rem;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+input[type='text'],
+input[type='password'] {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type='text']:focus,
+input[type='password']:focus {
+  border-color: #007bff; /* Focus color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+  padding: 1rem;
+  background-color: #007bff; /* Primary color */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Links */
+a {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Social Login Buttons */
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.social-login button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  color: #6ebfb3;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.social-login button:nth-child(1) {
+  background-color: #4267b2; /* Facebook Blue */
+}
+
+.social-login button:nth-child(2) {
+  background-color: #db4437; /* Google Red */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888888;
+  position: relative; /* To position the footer correctly */
+  margin-top: auto; /* Allow footer to stay at the bottom */
+  padding: 1rem; /* Add padding for better spacing */
+  background-color: #b7cf8b; /* Ensure footer has a white background */
+  width: 100%; /* Full width footer */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for separation */
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #888888;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #555555;
+}
+
+/* Error Message Styles */
+.error-message {
+  color: #ff4d4d; /* A brighter red for better visibility */
+  background-color: #ffe6e6; /* Light red background for emphasis */
+  border: 1px solid #ff9999; /* Border for better separation */
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+  box-shadow: 0px 4px 10px rgba(255, 77, 77, 0.2); /* Subtle shadow for focus */
+}
+
+/* Success Message Styles */
+.success-message {
+  color: #28a745; /* A vibrant green for success */
+  background-color: #eaffea; /* Light green background for emphasis */
+  border: 1px solid #8ae98a; /* Border for better separation */
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+  box-shadow: 0px 4px 10px rgba(40, 167, 69, 0.2); /* Subtle shadow for focus */
+}
