@@ -10,6 +10,7 @@ edu/auca/lms/lab/LabController.class
 edu/auca/lms/access/AccessLog.class
 edu/auca/lms/access/AccessLog$AccessLogBuilder.class
 edu/auca/lms/AucaLmsBackendApplication.class
+edu/auca/lms/config/CorsConfig.class
 edu/auca/lms/booking/LabBookingRepository.class
 edu/auca/lms/booking/LabBookingController$CreateBookingRequest.class
 edu/auca/lms/lab/LabRepository.class

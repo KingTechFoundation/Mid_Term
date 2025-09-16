@@ -8,6 +8,7 @@
 /workspace/auca-lms-backend/src/main/java/edu/auca/lms/booking/LabBookingRepository.java
 /workspace/auca-lms-backend/src/main/java/edu/auca/lms/booking/LabBookingStatus.java
 /workspace/auca-lms-backend/src/main/java/edu/auca/lms/common/BaseEntity.java
+/workspace/auca-lms-backend/src/main/java/edu/auca/lms/config/CorsConfig.java
 /workspace/auca-lms-backend/src/main/java/edu/auca/lms/config/DataSeeder.java
 /workspace/auca-lms-backend/src/main/java/edu/auca/lms/config/JpaConfig.java
 /workspace/auca-lms-backend/src/main/java/edu/auca/lms/equipment/Equipment.java

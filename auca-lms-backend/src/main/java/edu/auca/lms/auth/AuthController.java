@@ -37,8 +37,20 @@ public class AuthController {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = jwtService.generateToken(Map.of(), request.getUsername());
-        return ResponseEntity.ok(Map.of("token", token));
+        User user = userRepository.findByUsername(request.getUsername()).orElseThrow();
+        String token = jwtService.generateToken(Map.of(
+                "role", user.getRole().name(),
+                "name", user.getFullName()
+        ), request.getUsername());
+        return ResponseEntity.ok(Map.of(
+                "token", token,
+                "user", Map.of(
+                        "username", user.getUsername(),
+                        "fullName", user.getFullName(),
+                        "email", user.getEmail(),
+                        "role", user.getRole().name()
+                )
+        ));
     }
 
     @PostMapping("/register")
@@ -60,6 +72,19 @@ public class AuthController {
                 .build();
         userRepository.save(user);
         return ResponseEntity.ok(Map.of("message", "User registered"));
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<?> me(Authentication authentication) {
+        if (authentication == null) return ResponseEntity.status(401).build();
+        return userRepository.findByUsername(authentication.getName())
+                .map(u -> ResponseEntity.ok(Map.of(
+                        "username", u.getUsername(),
+                        "fullName", u.getFullName(),
+                        "email", u.getEmail(),
+                        "role", u.getRole().name()
+                )))
+                .orElse(ResponseEntity.status(404).build());
     }
 
     public static class LoginRequest {
