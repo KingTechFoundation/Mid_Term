@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: auca_mysql
+    environment:
+      - MYSQL_DATABASE=auca_lms
+      - MYSQL_USER=auca
+      - MYSQL_PASSWORD=auca
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    command: ["--default-authentication-plugin=mysql_native_password", "--max_connections=1000"]
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  backend:
+    build:
+      context: ./auca-lms-backend
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/auca_lms?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=auca
+      - SPRING_DATASOURCE_PASSWORD=auca
+    ports:
+      - "8080:8080"
+volumes:
+  mysql_data:
+
