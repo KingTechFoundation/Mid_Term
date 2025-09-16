@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/auca_lms?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: auca
+    password: auca
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+
+server:
+  port: 8080
+
+app:
+  security:
+    jwt:
+      secret: "change-this-in-prod-super-secret-key-please-change"
+      expirationMillis: 86400000
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: INFO
